@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+{% block title %}Ajout d'un employé{% endblock %}
+{% block body %}
+
+    <h6>Veuillez vérifier vos champs !!</h6>
+    
+    {% for error in errors %}
+      <p>{{ error }}</p>
+    {% endfor %}  
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<section class="sub-header">
+    <nav>
+        <a href="/home"><img src="images/4bois1.jpeg"></a>
+        <div class="nav-links" id="nav-links">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li class="dropdown">
+                    <a href="/home">ACCUEIL</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#description">Description</a></li>
+                        <li><a href="#valeur1">Nos valeurs</a></li>
+                    </ul>
+                </li>
+                <li><a href="/aboutUs">À PROPOS</a></li>
+                <li><a href="/products">PRODUITS</a></li>
+                <li><a href="/panier">PANIER</a></li>
+                <li><a href="/contactUs">CONTACT</a></li>
+
+                {% if app.user %}
+                    <li class="nav-item">
+                        <span class="nav-link"><i class="bi bi-person-circle me-1"></i>{{ app.user.username }}</span> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout"><i class="bi bi-box-arrow-right me-1"></i>DÉCONNEXION</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right me-1"></i>CONNEXION</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    <h1>Connexion</h1>
+</section>
+
+
+<div class="form-wrapper">
+<form class="form-login" method="post">
+    <div>
+        <h2>Connexion</h2>
+
+        {% if error %}
+            <div class="alert alert-danger">Identifiants incorrects.</div>
+        {% endif %}
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" name="_username" id="username" class="form-control" placeholder="Veuillez entrer votre nom d'utilisateur" value="{{ last_username }}" required>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" name="_password" id="password" class="form-control" placeholder="Veuillez entrer votre mot de passe" required>
+
+        <button class="btn btn-lg btn-primary" type="submit">Se connecter</button>
+
+        <p class="mt-3">Pas encore inscrit ?
+            <a href="register" class="btn-link">Inscrivez-vous!</a>
+        </p>
+    </div>
+</form>
+</div>
+
+{% endblock %}

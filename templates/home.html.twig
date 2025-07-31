@@ -1,0 +1,112 @@
+{% extends "base.html.twig" %}
+{% block title %}Accueil{% endblock %}
+{% block body %}
+
+<section class="header">
+        <nav>
+            <a href="/home"><img src="images/4bois1.jpeg"></a>
+            <div class="nav-links" id="nav-links">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li class="dropdown">
+                        <a href="/home">ACCUEIL</a>
+                        <ul class="dropdown-content">
+                            <li><a href="#description">Description</a></li>
+                            <li><a href="#valeur1">Nos valeurs</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/aboutUs">À PROPOS</a></li>
+                    <li><a href="/products">PRODUITS</a></li>
+                    <li><a href="/panier">PANIER</a></li>
+                    <li><a href="/contactUs">CONTACT</a></li>
+
+                    {% if app.user %}
+                        <li class="nav-item">
+                            <span class="nav-link" style="color: white !important;"><i class="bi bi-person-circle me-1"></i>{{ app.user.username }}</span> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_logout_check') }}"><i class="bi bi-box-arrow-right me-1"></i>DÉCONNEXION</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right me-1"></i>CONNEXION</a>
+                        </li>
+                    {% endif %}
+                        
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>        
+    <div class="text-box">
+        <h1>Importateur Et Distributeur De Bois <br> Et De Panneaux</h1>
+        <p>Au Maroc depuis 1996</p>
+        <a href="" class="hero-btn">ste.4bois@gmail.com</a>  
+    </div>
+</section>
+
+
+<!-- Description -->
+<section class="description" id="description">
+    <h1>Les types de panneaux disponibles</h1>
+    <div class="row">
+        <div class="description-col">
+            <h3>MDF</h3>
+            <p>Le MDF est un matériau composite fait de fibres de bois et de résine. Grâce à sa facilité de travail, le MDF est largement utilisé dans la fabrication des meubles, des moulures décoratives, des panneaux muraux, ainsi que dans l'industrie de la construction pour les portes, les encadrements de fenêtres.</p>
+        </div>
+        <div class="description-col">
+            <h3>Stratifié</h3>
+            <p>Le stratifié est un panneau en bois composé de tissu imprégné de résine. Apprécié pour sa durabilité, sa résistance aux rayures, à l'humidité et aux produits chimiques, le stratifié est couramment utilisé pour les surfaces de travail, les sols et les meubles, offrant une maintenance facile et une grande variété esthétique.</p>
+        </div>
+        <div class="description-col">
+            <h3>Latté</h3>
+            <p>Le latté est un panneau en bois constitué d'une âme de lattes de bois massif recouverte de deux couches de placage. Il offre une stabilité dimensionnelle élevée et une bonne résistance mécanique tout en restant léger. Utilisé principalement pour les meubles, les portes et les cloisons. Sa surface est idéale pour le placage décoratif.</p>
+        </div>
+        <div class="description-col">
+            <h3>High Gloss</h3>
+            <p>Le high gloss est un panneau en bois avec une finition ultra-brillante obtenue par l'application de vernis ou de résine et un polissage intensif. Très populaire pour les cuisines, salles de bains et meubles contemporains, il offre une apparence moderne, reflète la lumière pour créer une impression de profondeur et d'espace.</p>
+        </div>
+        
+    </div>
+</section>
+
+
+<!-- Nos Valeurs -->
+<section class="valeur" id="valeur1">
+    <div class="valeur-img">
+        <img src="images/4bois20.jpg" alt="">
+    </div>
+    <div class="valeur-txt">
+        <p>Bienvenue sur le site de notre entreprise spécialisée dans le bois. Depuis 1996, 4BOIS fournit des produits de qualité supérieure. Cette entreprise se caractérise par ses quatre principaux types de panneaux : MDF, Stratifié, Latte et High Gloss. Avec plus de 25 ans d'expérience, nous sommes reconnus pour notre engagement envers l'excellence, l'innovation et le respect de l'environnement. Notre équipe d'experts est prête à vous aider à choisir les matériaux adaptés à vos besoins.</p>
+    </div>
+</section>
+
+<section class="valeur" id="valeur2">
+    <div class="valeur-txt">
+        <p>Chez 4BOIS, nous cultivons des relations solides avec nos fournisseurs et nos employés, basées sur l'intégrité, la transparence et le respect mutuel. Nos fournisseurs sont sélectionnés rigoureusement pour assurer la qualité constante de nos matériaux, tandis que nos employés jouent un rôle essentiel dans notre réussite en apportant expertise et engagement à chaque étape. Nous promouvons un environnement de travail inclusif et dynamique, encourageant l'innovation et la responsabilité sociale. Notre objectif est de dépasser les attentes des clients tout en contribuant positivement à notre communauté et à l'environnement.</p>
+    </div>
+    <div class="valeur-img">
+        <img src="images/4bois9.jpeg" alt="4BOIS Image">
+    </div>
+</section>
+
+<section class="valeur" id="valeur3">
+    <div class="valeur-img">
+        <img src="images/4bois10.jpeg" alt="">
+    </div>
+    <div class="valeur-txt">
+        <p>Nous mettons un point d'honneur à garantir une qualité supérieure pour nos bois sélectionnés avec soin, assurant ainsi une durabilité, une finition et des performances exceptionnelles. Notre engagement envers la satisfaction client est au cœur de notre mission, avec un service personnalisé et réactif qui dépasse les attentes. Les retours positifs de nos clients attestent de notre réputation en tant que fournisseur de confiance dans l'industrie du bois, renforçant notre engagement envers l'excellence et la satisfaction totale de nos clients.</p>
+    </div>
+</section>
+
+<section class="valeur" id="valeur4">
+    <div class="valeur-txt">
+        <p>Nous attachons une grande importance à l'organisation et à l'efficacité au sein de nos entrepôts. Nous mettons en œuvre des pratiques rigoureuses de gestion des stocks pour assurer une disponibilité constante de nos produits. Nos entrepôts sont soigneusement organisés pour faciliter la récupération rapide des matériaux et minimiser les délais de livraison. De plus, nous accordons une attention particulière à la sécurité et à la propreté de nos installations pour garantir un environnement de travail sûr et agréable pour notre personnel. Cette approche nous permet de répondre efficacement aux demandes variées de nos clients tout en maintenant des normes élevées de qualité et de service.</p>
+    </div>
+    <div class="valeur-img">
+        <img src="images/4bois19.jpg" alt="4BOIS Image">
+    </div>
+</section>
+
+{% endblock %}
+
+    

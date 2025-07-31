@@ -1,0 +1,136 @@
+{% extends "base.html.twig" %}
+{% block title %}Contact{% endblock %}
+{% block body %}
+
+{% for message in app.flashes('success') %}
+        <div class="flash-success" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #4CAF50; color: white; padding: 15px; border-radius: 5px; z-index: 1000; display: flex; align-items: center; gap: 10px;">
+            {{ message }}
+            <button onclick="this.parentElement.remove()" style="background: white; color: #4CAF50; border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer;">
+                OK
+            </button>
+        </div>
+{% endfor %}
+
+{% for message in app.flashes('error') %}
+    <div class="alert alert-danger"style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #e42929ff; color: white; padding: 15px; border-radius: 5px; z-index: 1000; display: flex; align-items: center; gap: 10px;">
+            {{ message }}
+            <button onclick="this.parentElement.remove()" style="background: white; color:  #e42929ff; border: none; border-radius: 3px; padding: 3px 8px; cursor: pointer;">
+                OK
+    </div>
+{% endfor %}
+
+
+<section class="sub-header">
+        <nav>
+            <a href="home"><img src="images/4bois1.jpeg"></a>
+            <div class="nav-links" id="nav-links">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="/home">ACCUEIL</a></li>
+                    <li><a href="/aboutUs">À PROPOS</a></li>
+                    <li><a href="/products">PRODUITS</a></li>
+                    <li><a href="/panier">PANIER</a></li>
+                    <li><a href="/contactUs">CONTACT</a></li>
+
+                    {% if app.user %}
+                        <li class="nav-item">
+                            <span class="nav-link" style="color: white !important;"><i class="bi bi-person-circle me-1"></i>{{ app.user.username }}</span> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  href="{{ path('app_logout_check') }}"><i class="bi bi-box-arrow-right me-1"></i>DÉCONNEXION</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login"><i class="bi bi-box-arrow-in-right me-1"></i>CONNEXION</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+</section>
+
+<!-- Contactez-nous -->
+<div class="body">
+<section>
+        <div class="section-header">
+            <div class="container-contact">
+                <h2>Contactez-nous</h2>
+                <p>Notre équipe d'experts est prête à vous accompagner à chaque étape de votre projet, en vous
+                        offrant des conseils personnalisés et un service client hors pair. Ne laissez pas vos ambitions
+                        en matière de bois rester des rêves. Contactez-nous dès aujourd'hui pour découvrir comment nous
+                        pouvons transformer vos idées en réalisations concrètes et durables.</p>
+            </div>
+        </div>
+        <div class="container-contact">
+            <div class="row">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Adresse</h4>
+                            <p>Mohammédia, route national 1 <br> à coté de club LANORIA</p>
+                        </div>
+
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Téléphone/ Fix</h4>
+                            <p>0666718138/ 0523311415 <br> 0604033844</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h4>Email</h4>
+                            <p>ste.4bois@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="/ajoutContactConfirm" method="POST" id="contact-form">
+                        <h2>Envoyez un message</h2>
+
+                         <div class="input-box">
+                            <input type="text" name="nom" placeholder="Nom complet" required>
+                        </div>
+                
+                        <div class="input-box">
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+
+                        <div class="input-box">
+                            <input type="tel" name="numTel"  pattern="[0-9]{10}" placeholder="Numéro de téléphone" required>
+                        </div>
+                
+                        <div class="input-box">
+                            <input name="message" placeholder="Message" required>
+                        </div>
+                
+                        <div class="input-box">
+                            <input type="submit" value="Envoyer">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+</section>
+</div>
+
+<section class="localisation">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3320.904463023667!2d-7.384267824700475!3d33.65963727330738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7b7cd15817f61%3A0x6b80ab074c69b91a!2zNCBCb2lzIETDqXDDtHQ!5e0!3m2!1sfr!2sma!4v1720779755285!5m2!1sfr!2sma"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+{% endblock %}

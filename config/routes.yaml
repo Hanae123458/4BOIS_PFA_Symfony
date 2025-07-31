@@ -3,3 +3,26 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+home:
+    path: /home
+    controller: App\Controller\Controller::home
+
+aboutUs:
+    path: /aboutUs
+    controller: App\Controller\Controller::aboutUs
+
+products:
+    path: /products
+    controller: App\Controller\Controller::products
+
+contactUs:
+    path: /contactUs
+    controller: App\Controller\Controller::contactUs
+
+ajoutContactConfirm:
+    path: /ajoutContactConfirm
+    controller: App\Controller\Controller::ajoutContactConfirm
+
+
+
