@@ -14,9 +14,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Controller extends AbstractController{
 
-    public function home()
+    public function index()
     {
-        return $this->render("home.html.twig");
+        return $this->render("index.html.twig");
     }
 
     public function aboutUs()

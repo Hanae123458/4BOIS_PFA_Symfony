@@ -13,7 +13,7 @@ security:
             form_login:
                 login_path: app_login
                 check_path: app_login
-                default_target_path: home
+                default_target_path: index
             logout:
                 path: app_logout
             access_denied_url: login
@@ -21,7 +21,7 @@ security:
     access_control:
         - { path: ^/register, roles: PUBLIC_ACCESS }
         - { path: ^/login, roles: PUBLIC_ACCESS }
-        - { path: ^/home, roles: ROLE_USER }
+        - { path: ^/index, roles: ROLE_USER }
         - { path: ^/aboutUs, roles: ROLE_USER }
         - { path: ^/products, roles: ROLE_USER }
         - { path: ^/contactUs, roles: ROLE_USER }
